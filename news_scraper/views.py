@@ -1,10 +1,11 @@
 from django.shortcuts import render
 import requests
 from bs4 import BeautifulSoup
+from .models import News
 
 def news_list(request):
     try:
-        page = requests.get("https://www.irna.ir/archive?pl=2300")
+        page = requests.get("https://www.irna2.ir/archive?pl=2300")
         soup = BeautifulSoup(page.content, 'html.parser')
         
         news_titles=soup.select("#box4 h3 a")
@@ -34,4 +35,5 @@ def news_list(request):
         return render(request, 'news_scraper/news_list.html', {'news':news})
 
     except:
-        return render(request, 'news_scraper/error.html', {})
+        db_news = News.objects.order_by('time')
+        return render(request, 'news_scraper/news_list_db.html', {'db_news':db_news})

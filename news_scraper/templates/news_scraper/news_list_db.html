@@ -2,6 +2,7 @@
 <html lang="fa" dir="rtl">
 {% load static %}
 <link rel="stylesheet" href="{% static 'css/main.css' %}">
+
 <body>
     <header>
         <h1><a href="/">لیست اخبار برگزیده</a></h1>
@@ -9,16 +10,16 @@
 
     <ul>
 
-    {% for ti,u,l,t in news %}
+        {% for n in db_news %}
         <li> 
             <figure>
-                <img src={{ u }}></img>
+                <img src={{ n.image_url }}></img>
             </figure>
             <div class="desc">
-                <h2>{{ ti }}</h2>
+                <h2>{{ n.title }}</h2>
                 
-                <p>{{ l }}</p>
-                <time>{{ t }}</time>
+                <p>{{ n.lead }}</p>
+                <time>{{ n.time_txt }}</time>
             </div>
 
             
