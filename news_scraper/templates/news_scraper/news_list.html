@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+    {% load static %}
+<style>
+    
+    @font-face {
+        font-family: iws;
+        
+        src: local('iws'),
+            url('{% static "fonts/IRANSansWeb.woff2" %}');
+    }
+    
+    
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    body{
+        background-color: #e7eaee;
+        font-family: 'iws','Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    h1{
+        margin: 0 auto 40px;
+        display: block;
+        padding: 59px;
+        text-align: center;
+        background-image: url('{% static "images/tbg.jpg" %}');
+        background-size: cover;
+        color: white;
+    }
+    h1 a{
+        margin: 0;
+        padding: 0;
+        color: white;
+        text-decoration: none;
+    }
+    h2{
+        padding-right: 20px;
+        margin-bottom: 10px;
+        font-size: 18px;
+    }
+    ul{
+        margin: 0;
+        padding: 0;
+    }
+    li{
+        list-style: none;
+        display: flex;
+        width: 60%;
+        border-radius: 5px;
+        background-color: #FFF;
+        padding: 1rem;
+        margin: 0 auto 20px;
+        box-shadow: 0px 40px 20px 0px rgba(0,0,0,0.2);
+        
+
+    }
+    figure{
+        float: right;
+    }
+    img{
+        width: 180px;
+        height: 120px;
+        border-radius: 80px 10px;
+        
+    }
+    .desc{
+        width: 100%;
+        padding-right: 20px;
+        position: relative;
+    }
+    .desc > p{
+        margin-bottom: 10px;
+        text-align: justify;
+    }
+    time{
+        float: left;
+        position:absolute;
+        bottom:0;
+        left: 0;
+    }
+
+</style>
+
+<body>
+    <header>
+        <h1><a href="/">لیست اخبار برگزیده</a></h1>
+    </header>
+
+    <ul>
+
+    {% for ti,u,l,t in news %}
+        <li> 
+            <figure>
+                <img src={{ u }}></img>
+            </figure>
+            <div class="desc">
+                <h2>{{ ti }}</h2>
+                
+                <p>{{ l }}</p>
+                <time>{{ t }}</time>
+            </div>
+
+            
+            
+        </li>
+    {% endfor %}
+    </ul>
+
+</body>
+</html>
