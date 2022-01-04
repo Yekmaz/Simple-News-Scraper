@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 """
 
 import os
-#from decouple import config
+from decouple import config
 
 
 
@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '*esozf0^=ishk&06dst#4r(htujv2eot5&#^h21_amqhgr)gk7'
+
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
@@ -124,4 +124,4 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-#SECRET_KEY = config('SECRET_KEY')
+SECRET_KEY = config('SECRET_KEY')
