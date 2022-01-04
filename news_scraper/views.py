@@ -5,7 +5,7 @@ from .models import News
 
 def news_list(request):
     try:
-        page = requests.get("https://www.irna2.ir/archive?pl=2300")
+        page = requests.get("https://www.irna.ir/archive?pl=2300")
         soup = BeautifulSoup(page.content, 'html.parser')
         
         news_titles=soup.select("#box4 h3 a")
